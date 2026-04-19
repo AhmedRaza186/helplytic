@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Injection -->
+        <div id="sidebar-container"></div>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="dashboard-header flex justify-between items-center mb-4">
+                <div>
+                    <h1 id="welcome-text">Dashboard</h1>
+                    <p class="text-secondary">Here's an overview of your activity.</p>
+                </div>
+                <button class="btn btn-primary" onclick="redirect('../create-request/create-request.html')">
+                    + New Request
+                </button>
+            </header>
+            
+            <!-- Quick Stats -->
+            <div class="stats-grid mt-4">
+                <div class="card stat-card">
+                    <h4 class="text-secondary">My Requests</h4>
+                    <h2 class="stat-value" id="stat-my-requests">-</h2>
+                </div>
+                <div class="card stat-card">
+                    <h4 class="text-secondary">Help Offered</h4>
+                    <h2 class="stat-value" id="stat-offered">-</h2>
+                </div>
+                <div class="card stat-card">
+                    <h4 class="text-secondary">Current Score</h4>
+                    <h2 class="stat-value text-primary" id="stat-score">-</h2>
+                </div>
+            </div>
+
+            <!-- Recent Requests -->
+            <section class="mt-4" style="margin-top: 3rem;">
+                <div class="flex justify-between items-center mb-4">
+                    <h3>Recent Global Requests</h3>
+                    <a href="../explore/explore.html" class="text-primary font-weight-500" style="font-size: 0.875rem;">View all &rarr;</a>
+                </div>
+                <div id="recent-requests-grid" class="requests-grid">
+                    <div class="spinner"></div> <!-- loader -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

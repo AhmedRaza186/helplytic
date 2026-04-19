@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .msg-layout {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+        }
+
+        .message-thread {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .message-thread .thread-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .message-thread .participants {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .msg-bubble {
+            background:#e0f2fe; padding:6px 12px; border-radius:12px; font-size:0.75rem; font-weight:600; color:#0284c7;
+        }
+
+        @media (max-width: 900px) {
+            .msg-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container pb-4">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">INTERACTION / MESSAGING</span>
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 1rem;">Keep support moving through direct communication.</h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">Basic messaging gives helpers and requesters a clear follow-up path once a match happens.</p>
+        </div>
+    </div>
+
+    <div class="msg-layout">
+        <!-- Recent Messages -->
+        <div class="card" style="height: fit-content;">
+            <span class="eyebrow">CONVERSATION STREAM</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Recent messages</h2>
+            
+            <div id="messages-list">
+               <div class="spinner"></div> 
+            </div>
+        </div>
+
+        <!-- Compose -->
+        <div class="card" style="height: fit-content;">
+            <span class="eyebrow">SEND MESSAGE</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Start a conversation</h2>
+
+            <form id="msg-form">
+                <div class="form-group mb-4">
+                    <label class="form-label">To</label>
+                    <select class="form-control" id="msg-to" style="padding:1rem; border-radius:12px;" required>
+                        <option value="Ayesha Khan">Ayesha Khan</option>
+                        <option value="Hassan Ali">Hassan Ali</option>
+                        <option value="Sara Noor">Sara Noor</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-control" id="msg-content" rows="4" style="padding:1rem; border-radius:12px; resize:vertical;" placeholder="Share support details, ask for files, or suggest next steps." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full mt-2" style="padding: 1rem;" id="btn-send">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="messaging.js"></script>
+</body>
+</html>

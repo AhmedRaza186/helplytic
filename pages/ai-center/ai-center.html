@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Center - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .page-layout { max-width: 1200px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+        
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .req-detail-row {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .req-detail-row:last-child { border-bottom: none; }
+
+        .pill-tag {
+            background: #e0f2fe; color: #0284c7;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 900px) {
+            .insights-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="page-layout">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">AI CENTER</span>
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 1rem;">See what the platform intelligence is noticing.</h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">AI-like insights summarize demand trends, helper readiness, urgency signals, and request recommendations.</p>
+        </div>
+
+        <div class="insights-grid" id="insights-container">
+            <!-- Mocked UI from design -->
+            <div class="card">
+                <span class="eyebrow" style="color:var(--brand-primary);">TREND PULSE</span>
+                <h2 style="font-size: 2.2rem; margin: 0.5rem 0;">Web<br>Development</h2>
+                <p class="text-secondary" style="font-size: 0.9rem;">Most common support area based on active community requests.</p>
+            </div>
+            <div class="card">
+                <span class="eyebrow" style="color:var(--brand-primary);">URGENCY WATCH</span>
+                <h2 style="font-size: 2.2rem; margin: 0.5rem 0;">2</h2>
+                <p class="text-secondary" style="font-size: 0.9rem;">Requests currently flagged high priority by the urgency detector.</p>
+            </div>
+            <div class="card">
+                <span class="eyebrow" style="color:var(--brand-primary);">MENTOR POOL</span>
+                <h2 style="font-size: 2.2rem; margin: 0.5rem 0;">2</h2>
+                <p class="text-secondary" style="font-size: 0.9rem;">Trusted helpers with strong response history and contribution signals.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="eyebrow">AI RECOMMENDATIONS</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Requests needing attention</h2>
+            
+            <div class="flex-col" id="attention-list">
+                <div class="spinner"></div>    
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="ai-center.js"></script>
+</body>
+</html>

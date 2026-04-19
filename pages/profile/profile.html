@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .profile-layout {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+        }
+
+        .pill-tag {
+            background: #e0f2fe; color: #0284c7;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        
+        .pill-tag.badge { background: #dcfce7; color: #16a34a; }
+
+        @media (max-width: 900px) {
+            .profile-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container pb-4">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">PROFILE</span>
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 0.5rem;" id="user-name">Ayesha Khan</h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);" id="user-subtext">Both • Karachi</p>
+        </div>
+    </div>
+
+    <div class="profile-layout">
+        <!-- Skills and Rep -->
+        <div class="card" style="height: fit-content;">
+            <span class="eyebrow">PUBLIC PROFILE</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Skills and reputation</h2>
+            
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-secondary">Trust score</span>
+                <strong style="font-size: 1.1rem;" id="p-trust">100%</strong>
+            </div>
+            
+            <div class="flex justify-between items-center mb-4 pb-4" style="border-bottom: 1px solid var(--border-color);">
+                <span class="text-secondary">Contributions</span>
+                <strong style="font-size: 1.1rem;" id="p-contrib">35</strong>
+            </div>
+
+            <h4 class="mb-2">Skills</h4>
+            <div class="flex gap-2 mb-4" style="flex-wrap: wrap;" id="p-skills">
+                <span class="pill-tag">Figma</span>
+                <span class="pill-tag">UI/UX</span>
+                <span class="pill-tag">HTML/CSS</span>
+                <span class="pill-tag">Career Guidance</span>
+            </div>
+
+            <h4 class="mb-2">Badges</h4>
+            <div class="flex gap-2" style="flex-wrap: wrap;" id="p-badges">
+                <span class="pill-tag badge">Design Ally</span>
+                <span class="pill-tag badge">Fast Responder</span>
+                <span class="pill-tag badge">Top Mentor</span>
+            </div>
+        </div>
+
+        <!-- Edit Profile -->
+        <div class="card">
+            <span class="eyebrow">EDIT PROFILE</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Update your identity</h2>
+
+            <form id="profile-form">
+                <div class="flex gap-4 mb-4">
+                    <div class="form-group" style="flex:1; margin:0;">
+                        <label class="form-label">Name</label>
+                        <input type="text" id="edit-name" class="form-control" style="padding:1rem; border-radius:12px;">
+                    </div>
+                    <div class="form-group" style="flex:1; margin:0;">
+                        <label class="form-label">Location</label>
+                        <input type="text" id="edit-location" class="form-control" style="padding:1rem; border-radius:12px;">
+                    </div>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label">Skills</label>
+                    <input type="text" id="edit-skills" class="form-control" style="padding:1rem; border-radius:12px;" placeholder="Comma separated">
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label">Interests</label>
+                    <input type="text" id="edit-interests" class="form-control" style="padding:1rem; border-radius:12px;" placeholder="Optional context">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full mt-2" style="padding: 1rem;" id="btn-save">Save profile</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .admin-layout { max-width: 1200px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .data-table th, .data-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-color); }
+        .data-table th { font-weight: 700; color: var(--text-secondary); font-size:0.85rem; text-transform: uppercase; }
+        
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+        }
+        .pill-tag { background: #fee2e2; color: #dc2626; padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; border: none; cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="admin-layout">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">ADMINISTRATION</span>
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 1rem;">Platform control center.</h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">Manage users, monitor requests, and enforce community guidelines.</p>
+        </div>
+
+        <div class="card">
+            <span class="eyebrow">USER MANAGEMENT</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Recent user signals</h2>
+            
+            <div style="overflow-x:auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Trust Score</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-users-list">
+                        <!-- Loaded via JS -->
+                         <tr><td colspan="5" class="text-center"><div class="spinner text-primary" style="border-top-color:var(--brand-primary)"></div></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

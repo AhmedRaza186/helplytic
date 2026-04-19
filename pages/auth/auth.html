@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helplytics AI - Auth</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .auth-container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 0 1.5rem;
+        }
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .left-panel h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .left-panel ul {
+            margin-top: 1.5rem;
+            list-style: disc;
+            padding-left: 1.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+        .left-panel li { margin-bottom: 0.75rem; }
+        
+        .right-panel {
+            background-color: var(--bg-surface);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .right-panel .tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--brand-primary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .right-panel h2 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+        @media (max-width: 768px) {
+            .auth-container { grid-template-columns: 1fr; }
+            .left-panel h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar container">
+        <a href="../../index.html" class="nav-logo">
+            <div class="logo-icon">H</div>
+            Helplytics AI
+        </a>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <a href="../explore/explore.html">Explore</a>
+            <a href="../leaderboard/leaderboard.html">Leaderboard</a>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <!-- Left Panel based on Image 1 -->
+        <div class="dark-panel left-panel">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:1rem; display:block;">Community Access</span>
+            <h1>Enter the support network.</h1>
+            <p class="text-secondary" style="font-size: 1.1rem; line-height: 1.6;">
+                Choose your identity, set your role, and jump into a multi-page product flow designed for asking, offering, and tracking help with a premium interface.
+            </p>
+            <ul>
+                <li>Role-based entry for Need Help, Can Help, or Both</li>
+                <li>Direct path into dashboard, requests, AI Center, and community feed</li>
+                <li>Persistent session powered by local infrastructure</li>
+            </ul>
+        </div>
+        
+        <!-- Right Panel based on Image 1 -->
+        <div class="right-panel">
+            <span class="tag">LOGIN / SIGNUP</span>
+            <h2 id="auth-title">Authenticate your community profile</h2>
+            
+            <form id="auth-form">
+                <!-- Signup Only Fields -->
+                <div id="signup-fields" style="display:none;">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Ayesha Khan">
+                    </div>
+                </div>
+
+                <!-- OTP Only Fields -->
+                <div id="otp-fields" style="display:none;">
+                    <div class="form-group">
+                        <label class="form-label">Verification Code (OTP)</label>
+                        <input type="text" id="otp" class="form-control" placeholder="123456">
+                    </div>
+                </div>
+
+                <div id="auth-main-fields">
+
+                <div class="form-group flex gap-4" style="flex-wrap: wrap;">
+                    <div style="flex:1;">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="community@helplytics.ai" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+                </div>
+                
+                <button type="submit" id="main-btn" class="btn btn-primary w-full mt-4" style="padding:1rem;">Continue to dashboard</button>
+                
+                <div class="mt-4 flex justify-between text-secondary" style="font-size: 0.9rem;">
+                    <span id="switch-text">New here? <a href="#" id="to-signup" style="color:var(--brand-primary); font-weight:600;">Sign up</a></span>
+                    <a href="#" id="to-login" style="color:var(--brand-primary); font-weight:600; display:none;">Sign in instead</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script>
+        // auth.js inline for precise control of this specific UI
+        document.addEventListener('DOMContentLoaded', () => {
+            let mode = 'login';
+            let currentEmail = ''; // store for OTP
+            
+            const switchText = document.getElementById('switch-text');
+            const toSignup = document.getElementById('to-signup');
+            const toLogin = document.getElementById('to-login');
+            
+            const signupFields = document.getElementById('signup-fields');
+            const mainFields = document.getElementById('auth-main-fields');
+            const otpFields = document.getElementById('otp-fields');
+            
+            const title = document.getElementById('auth-title');
+            const mainBtn = document.getElementById('main-btn');
+            const form = document.getElementById('auth-form');
+
+            function setMode(newMode) {
+                mode = newMode;
+                signupFields.style.display = 'none';
+                mainFields.style.display = 'none';
+                otpFields.style.display = 'none';
+                toLogin.style.display = 'none';
+                switchText.style.display = 'none';
+                
+                if (mode === 'signup') {
+                    signupFields.style.display = 'block';
+                    mainFields.style.display = 'block';
+                    switchText.style.display = 'inline-block';
+                    toLogin.style.display = 'inline-block';
+                    title.textContent = 'Create your community profile';
+                    mainBtn.textContent = 'Sign up & Continue';
+                } else if (mode === 'login') {
+                    mainFields.style.display = 'block';
+                    switchText.style.display = 'inline-block';
+                    title.textContent = 'Authenticate your community profile';
+                    mainBtn.textContent = 'Continue to dashboard';
+                } else if (mode === 'otp') {
+                    otpFields.style.display = 'block';
+                    title.textContent = 'Verify your email';
+                    mainBtn.textContent = 'Submit Verification Code';
+                }
+            }
+
+            toSignup.addEventListener('click', (e) => {
+                e.preventDefault();
+                setMode('signup');
+            });
+
+            toLogin.addEventListener('click', (e) => {
+                e.preventDefault();
+                setMode('login');
+            });
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const pass = document.getElementById('password').value;
+                
+                setLoader(mainBtn, true, 'Processing...');
+                let res;
+                
+                if (mode === 'login') {
+                    res = await loginUser(email, pass);
+                    if(res.success && res.data && res.data.token) {
+                        setToken(res.data.token);
+                        setUser(res.data.user);
+                        window.location.href = '../dashboard/dashboard.html';
+                    } else {
+                        alert(res.message || "Login failed");
+                    }
+                } else if (mode === 'signup') {
+                    const name = document.getElementById('name').value;
+                    res = await signupUser(name, email, pass);
+                    
+                    if (res.success) {
+                        currentEmail = email;
+                        
+                        // Proceed to send OTP wrapper assuming backend requires it
+                        await sendOtp(email);
+                        
+                        alert("Please check your email for the verification code.");
+                        setMode('otp');
+                    } else {
+                        alert(res.message || "Signup failed");
+                    }
+                } else if (mode === 'otp') {
+                    const otpCode = document.getElementById('otp').value;
+                    res = await verifyOtp(currentEmail, otpCode);
+                    
+                    if (res.success) {
+                        alert("Account verified! Please login.");
+                        setMode('login');
+                    } else {
+                        alert(res.message || "Invalid or expired OTP");
+                    }
+                }
+                
+                setLoader(mainBtn, false, mode === 'login' ? 'Continue to dashboard' : mode === 'signup' ? 'Sign up & Continue' : 'Submit Verification Code');
+            });
+        });
+    </script>
+</body>
+</html>

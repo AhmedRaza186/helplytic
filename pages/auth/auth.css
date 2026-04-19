@@ -1,0 +1,60 @@
+/* Auth Page Specific CSS */
+.auth-body {
+    background-color: var(--bg-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+}
+
+.auth-card {
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.auth-header {
+    margin-bottom: 2rem;
+}
+
+.logo {
+    text-decoration: none;
+    display: inline-block;
+}
+
+#auth-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.text-primary {
+    color: var(--brand-primary);
+    text-decoration: none;
+}
+
+.text-primary:hover {
+    text-decoration: underline;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.text-tracking-widest {
+    letter-spacing: 0.25em;
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 1rem;
+    }
+
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+}

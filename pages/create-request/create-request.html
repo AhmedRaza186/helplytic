@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Request - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .split-layout {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .side-ai-card {
+            background-color: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .ai-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .ai-row:last-child { border-bottom: none; }
+        
+        @media (max-width: 900px) {
+            .split-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container pb-4">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">CREATE REQUEST</span>
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 1rem;">Turn a rough problem into a clear help request.</h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">Use built-in AI suggestions for category, urgency, tags, and a stronger description rewrite.</p>
+        </div>
+    </div>
+
+    <div class="split-layout">
+        <!-- Form Area -->
+        <div class="card" style="padding: 2.5rem;">
+            <form id="create-request-form">
+                <div class="form-group mb-4">
+                    <label class="form-label text-primary" style="color: var(--text-primary);">Title</label>
+                    <input type="text" id="title" class="form-control" style="padding: 1rem; border-radius:12px;" placeholder="Need review on my JavaScript quiz app before submission" required>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="form-label" style="color: var(--text-primary);">Description</label>
+                    <textarea id="description" class="form-control" rows="5" style="padding: 1rem; border-radius:12px; resize:vertical;" placeholder="Explain the challenge, your current progress, deadline, and what kind of help would be useful." required></textarea>
+                </div>
+                
+                <div class="flex gap-4 mb-4">
+                    <div style="flex:1;">
+                        <label class="form-label" style="color: var(--text-primary);">Tags</label>
+                        <input type="text" id="tags" class="form-control" style="padding: 1rem; border-radius:12px;" placeholder="JavaScript, Debugging, Review">
+                    </div>
+                    <div style="flex:1;">
+                        <label class="form-label" style="color: var(--text-primary);">Category</label>
+                        <select id="category" class="form-control" style="padding: 1rem; border-radius:12px;">
+                            <option value="Web Development">Web Development</option>
+                            <option value="Design">Design</option>
+                            <option value="Career">Career</option>
+                            <option value="Community">Community</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group mb-4" style="max-width: 50%;">
+                    <label class="form-label" style="color: var(--text-primary);">Urgency</label>
+                    <select id="urgency" class="form-control" style="padding: 1rem; border-radius:12px;">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High" selected>High</option>
+                    </select>
+                </div>
+
+                <div class="flex gap-4 mt-4" style="padding-top: 1rem;">
+                    <button type="button" class="btn btn-secondary" style="padding: 1rem 1.5rem;" id="btn-ai">Apply AI suggestions</button>
+                    <button type="submit" class="btn btn-primary" style="padding: 1rem 1.5rem;" id="btn-submit">Publish request</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- AI Assistant Sidebar -->
+        <div class="side-ai-card">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--brand-primary); letter-spacing:0.1em; display:block; margin-bottom:1rem;">AI ASSISTANT</span>
+            <h2 style="font-size: 2.2rem; line-height:1.2; margin-bottom: 2rem;">Smart request guidance</h2>
+            
+            <div class="ai-row">
+                <span class="text-secondary">Suggested category</span>
+                <strong id="ai-cat">Community</strong>
+            </div>
+            <div class="ai-row">
+                <span class="text-secondary">Detected urgency</span>
+                <strong id="ai-urgency">Low</strong>
+            </div>
+            <div class="ai-row" style="flex-direction: column; gap: 0.5rem; justify-content: flex-start;">
+                <span class="text-secondary">Suggested tags</span>
+                <div style="font-weight: 600; font-size: 0.95rem;">Add more detail for smarter tags</div>
+            </div>
+            <div class="ai-row" style="flex-direction: column; gap: 0.5rem; justify-content: flex-start;">
+                <span class="text-secondary">Rewrite suggestion</span>
+                <div style="font-weight: 600; font-size: 0.95rem;">Start describing the challenge to generate a stronger version.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="create-request.js"></script>
+</body>
+</html>

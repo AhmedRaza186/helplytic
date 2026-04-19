@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .explore-layout {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            padding: 0 1.5rem;
+        }
+        
+        .filters-sidebar {
+            background-color: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            height: fit-content;
+        }
+
+        .filters-sidebar .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .pill-tag {
+            background: #e0f2fe; color: #0284c7;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .req-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: #e0f2fe; color: #0284c7;
+        }
+        .req-pill.high { background: #fee2e2; color: #dc2626; }
+        .req-pill.solved { background: #dcfce7; color: #16a34a; }
+
+        @media (max-width: 768px) {
+            .explore-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container pb-4">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">EXPLORE / FEED</span>
+            <h1 style="font-size: 3rem; line-height:1.1;">Browse help requests with filterable community context.</h1>
+            <p class="mt-4" style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">Filter by category, urgency, skills, and location to surface the best matches.</p>
+        </div>
+    </div>
+
+    <div class="explore-layout">
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+            <span class="eyebrow">FILTERS</span>
+            <h2 style="font-size: 2rem; margin-bottom: 2rem;">Refine the feed</h2>
+
+            <div class="form-group">
+                <label class="form-label" style="margin-bottom: 1rem;">Category</label>
+                <select class="form-control mb-4" id="filter-category" style="padding: 1rem; border-radius: 12px;">
+                    <option value="">All categories</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Design">Design</option>
+                    <option value="Career">Career</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="margin-bottom: 1rem;">Urgency</label>
+                <select class="form-control mb-4" id="filter-urgency" style="padding: 1rem; border-radius: 12px;">
+                    <option value="">All urgency levels</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="margin-bottom: 1rem;">Skills</label>
+                <input type="text" class="form-control mb-4" placeholder="React, Figma, Git/GitHub" style="padding: 1rem; border-radius: 12px;">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="margin-bottom: 1rem;">Location</label>
+                <input type="text" class="form-control" placeholder="Karachi, Lahore, Remote" style="padding: 1rem; border-radius: 12px;">
+            </div>
+            
+            <button class="btn btn-primary w-full mt-4" id="btn-apply-filters">Apply Filters</button>
+        </aside>
+
+        <!-- Feed List -->
+        <div class="feed-content flex-col gap-4" id="requests-container" style="display: flex;">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="explore.js"></script>
+</body>
+</html>

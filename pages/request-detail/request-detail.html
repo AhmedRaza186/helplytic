@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Detail - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <link rel="stylesheet" href="request-detail.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container pb-4">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">REQUEST DETAIL</span>
+            
+            <div class="flex" style="gap: 0.5rem; flex-wrap:wrap; margin-bottom:1.5rem;" id="req-pills">
+                <!-- Injected via JS -->
+                 <div class="spinner"></div>
+            </div>
+
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 1rem;" id="req-title">Loading request...</h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);" id="req-desc">Please wait while the request details are loaded.</p>
+        </div>
+    </div>
+
+    <div class="detail-layout">
+        <!-- Left Column -->
+        <div class="flex-col gap-4">
+            <div class="card">
+                <span class="eyebrow">AI SUMMARY</span>
+                <div class="flex items-center gap-4 mt-4 bg-tertiary" style="background:var(--bg-page); padding:1rem; border-radius:var(--radius-md);">
+                    <div class="logo-icon" style="flex-shrink:0;">H</div>
+                    <div>
+                        <strong>Helplytics AI</strong>
+                        <p class="text-secondary mt-1" style="font-size:0.9rem;" id="ai-summary">This request looks like it needs practical guidance. AI summary will be injected here.</p>
+                    </div>
+                </div>
+                
+                <div class="flex mt-4" style="gap:0.5rem;" id="ai-tags">
+                   <!-- Tags injected here -->
+                </div>
+            </div>
+
+            <div class="card" id="actions-card" style="display:none;">
+                <span class="eyebrow">ACTIONS</span>
+                <div class="flex gap-4 mt-4">
+                    <button class="btn btn-primary" id="btn-offer-help">I can help</button>
+                    <button class="btn btn-secondary" id="btn-mark-solved" style="display:none;">Mark as solved</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="flex-col gap-4">
+            <div class="card">
+                <span class="eyebrow">REQUESTER</span>
+                <div class="flex justify-between items-center mt-4">
+                    <div class="flex items-center gap-2">
+                        <div class="avatar" style="width:40px;height:40px;background:#d1d5db;border-radius:50%;" id="req-avatar"></div>
+                        <div>
+                            <strong id="req-author">Loading...</strong>
+                            <div class="text-secondary" style="font-size:0.8rem;" id="req-location">Remote</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" style="padding:0.5rem 1rem; font-size:0.85rem;" onclick="redirect('../messaging/messaging.html')">Messages</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="eyebrow">HELPERS</span>
+                <h3 style="margin-top:0.5rem;">People ready to support</h3>
+                <div class="flex-col gap-4 mt-4" id="helpers-list">
+                    <!-- Helpers mocked here -->
+                    <p class="text-secondary">No helpers yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="request-detail.js"></script>
+</body>
+</html>

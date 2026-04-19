@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <style>
+        .page-layout { max-width: 1000px; margin: 0 auto 4rem; padding: 0 1.5rem; }
+        
+        .notification-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .notification-item:last-child { border-bottom: none; }
+        
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+        }
+
+        .pill-tag {
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .pill-unread { padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; border: 1px solid #d1d5db; color: var(--text-primary); }
+        .pill-read { padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); }
+
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="page-layout">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">NOTIFICATIONS</span>
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 1rem;">Stay updated on requests, helpers, and trust signals.</h1>
+        </div>
+
+        <div class="card">
+            <span class="eyebrow">LIVE UPDATES</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Notification feed</h2>
+            
+            <div id="notifications-list">
+                <div class="spinner"></div>    
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="notifications.js"></script>
+</body>
+</html>

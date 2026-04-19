@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Helplytics AI</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container pb-4">
+        <div class="dark-panel" style="margin-bottom: 2rem;">
+            <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.6); display:block; margin-bottom: 1rem;">LEADERBOARD</span>
+            <h1 style="font-size: 3.5rem; line-height:1.1; margin-bottom: 1rem;">Recognize the people who keep the community moving.</h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8);">Trust score, contribution count, and badges create visible momentum for reliable helpers.</p>
+        </div>
+    </div>
+
+    <div class="leaderboard-layout">
+        <!-- Rankings List -->
+        <div class="card">
+            <span class="eyebrow">TOP HELPERS</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Rankings</h2>
+            
+            <div id="rankings-list" class="flex-col gap-4">
+                <div class="spinner"></div>    
+            </div>
+        </div>
+
+        <!-- Badges & Trust -->
+        <div class="card">
+            <span class="eyebrow">BADGE SYSTEM</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2rem;">Trust and achievement</h2>
+
+            <div id="trust-list" class="flex-col gap-4">
+                <div class="spinner"></div>    
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="../../assets/global/components.js"></script>
+    <script src="leaderboard.js"></script>
+</body>
+</html>

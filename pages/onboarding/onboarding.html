@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Onboarding</title>
+    <link rel="stylesheet" href="../../assets/global/global.css">
+    <link rel="stylesheet" href="onboarding.css">
+</head>
+<body class="bg-secondary flex justify-center items-center" style="min-height: 100vh;">
+    
+    <div class="card onboarding-card" style="width: 100%; max-width: 500px;">
+        <div class="text-center mb-4">
+            <h2>Complete Profile Setup</h2>
+            <p class="text-secondary">Tell us a bit about your skills so we can personalize your feed.</p>
+        </div>
+        
+        <form id="onboarding-form">
+            <div class="form-group">
+                <label class="form-label">Profile Picture URL (Optional)</label>
+                <input type="url" id="profile-pic" class="form-control" placeholder="https://example.com/me.png">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Areas of Expertise</label>
+                <select id="expertise" class="form-control" required>
+                    <option value="" disabled selected>Select your top skill</option>
+                    <option value="Technical/Programming">Technical / Programming</option>
+                    <option value="Design/UX">Design / UX</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Business">Business / Operations</option>
+                    <option value="General">General Questions</option>
+                </select>
+            </div>
+            
+            <div class="form-group mt-4">
+                <button type="submit" id="btn-finish" class="btn btn-primary" style="width: 100%;">Go to Dashboard</button>
+                <a href="../dashboard/dashboard.html" class="btn btn-secondary mt-4" style="width: 100%; text-align:center;">Skip for now</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/global/config.js"></script>
+    <script src="../../assets/global/utils.js"></script>
+    <script src="../../assets/global/api.js"></script>
+    <script src="onboarding.js"></script>
+</body>
+</html>

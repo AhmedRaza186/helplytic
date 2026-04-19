@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helplytics AI - Home</title>
+    <link rel="stylesheet" href="assets/global/global.css">
+    <style>
+        .hero-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 0 1.5rem;
+        }
+        .hero-left {
+            padding-top: 2rem;
+        }
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .hero-left h1 {
+            font-size: 4.5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+        .hero-left p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        .metric-card {
+            background: var(--bg-surface);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        .metric-card span.m-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .metric-card h3 {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+            color: var(--text-primary);
+        }
+        .metric-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .dark-right-card {
+            background-color: var(--brand-dark);
+            color: var(--text-on-dark);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .yellow-orb {
+            position: absolute;
+            top: 2rem; right: 2rem;
+            width: 80px; height: 80px;
+            background: radial-gradient(circle, #fcd34d 0%, #d97706 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(252, 211, 77, 0.4);
+        }
+        .dark-right-card h2 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin: 1rem 0 1.5rem;
+        }
+        .dark-right-card p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        .feature-box {
+            background-color: var(--bg-page);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .feature-box h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .feature-box p { color: var(--text-secondary); font-size: 0.9rem; margin:0; }
+
+        .core-flow { max-width: 1200px; margin: 6rem auto; padding: 0 1.5rem; }
+        .core-flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        
+        .req-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            background: #e0f2fe; color: #0284c7;
+        }
+        .req-pill.high { background: #fee2e2; color: #dc2626; }
+        .req-pill.solved { background: #dcfce7; color: #16a34a; }
+
+        @media (max-width: 768px) {
+            .hero-section { grid-template-columns: 1fr; }
+            .hero-left h1 { font-size: 3rem; }
+            .metrics-grid, .core-flow-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon">H</div>
+            Helplytics AI
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="Helplytics-AI/pages/explore/explore.html">Explore</a>
+            <a href="Helplytics-AI/pages/leaderboard/leaderboard.html">Leaderboard</a>
+            <a href="Helplytics-AI/pages/ai-center/ai-center.html">AI Center</a>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:center;">
+             <span style="font-size: 0.85rem; font-weight:600; color:var(--text-secondary);">Live community signals</span>
+             <a href="Helplytics-AI/pages/auth/auth.html" class="btn btn-primary">Join the platform</a>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-left">
+            <span class="eyebrow">SMIT GRAND CODING NIGHT 2026</span>
+            <h1>Find help faster.<br>Become help that<br>matters.</h1>
+            <p>Helplytics AI is a community-powered support network for students, mentors, creators, and builders. Ask for help, offer help, track impact, and let AI surface smarter matches across the platform.</p>
+            
+            <div style="display:flex; gap:1rem;">
+                <a href="Helplytics-AI/pages/auth/auth.html" class="btn btn-primary">Open product demo</a>
+                <a href="Helplytics-AI/pages/auth/auth.html" class="btn btn-secondary">Post a request</a>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="m-title">MEMBERS</span>
+                    <h3>384+</h3>
+                    <p>Students, mentors, and helpers in the loop.</p>
+                </div>
+                <div class="metric-card">
+                    <span class="m-title">REQUESTS</span>
+                    <h3>72+</h3>
+                    <p>Support posts shared across learning journeys.</p>
+                </div>
+                <div class="metric-card">
+                    <span class="m-title">SOLVED</span>
+                    <h3>69+</h3>
+                    <p>Problems resolved through fast community action.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dark-right-card">
+            <div class="yellow-orb"></div>
+            <span class="eyebrow" style="color: rgba(255,255,255,0.6);" >LIVE PRODUCT FEEL</span>
+            <h2>More than a form.<br>More like an<br>ecosystem.</h2>
+            <p>A polished multi-page experience inspired by product platforms, with AI summaries, trust scores, contribution signals, notifications, and leaderboard momentum.</p>
+
+            <div class="feature-box">
+                <h4>AI request intelligence</h4>
+                <p>Auto-categorization, urgency detection, tags, rewrite suggestions, and trend snapshots.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Community trust graph</h4>
+                <p>Badges, helper rankings, trust score boosts, and visible contribution history.</p>
+            </div>
+            <div class="feature-box" style="margin-bottom:0;">
+                <h4>100%</h4>
+                <p>Top trust score currently active across the sample mentor network.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Flow Section -->
+    <div class="core-flow">
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <span class="eyebrow">CORE FLOW</span>
+                <h2 style="font-size: 2.5rem;">From struggling alone to solving together</h2>
+            </div>
+            <button class="btn btn-secondary">Try onboarding AI</button>
+        </div>
+        <div class="core-flow-grid">
+            <div class="card">
+                <h4>Ask for help clearly</h4>
+                <p class="text-secondary mt-4">Create structured requests with category, urgency, AI suggestions, and tags that attract the right people.</p>
+            </div>
+            <div class="card">
+                <h4>Discover the right people</h4>
+                <p class="text-secondary mt-4">Use the explore feed, helper lists, notifications, and messaging to move quickly once a match happens.</p>
+            </div>
+            <div class="card">
+                <h4>Track real contribution</h4>
+                <p class="text-secondary mt-4">Trust scores, badges, solved requests, and rankings help the community recognize meaningful support.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
