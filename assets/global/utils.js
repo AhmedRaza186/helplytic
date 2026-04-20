@@ -129,7 +129,7 @@ function getUser() {
 function authGuard() {
     const token = getToken();
     if (!token) {
-        redirect('/Helplytics-AI/pages/auth/auth.html');
+        redirect('/pages/auth/auth.html');
     }
 }
 
@@ -137,6 +137,6 @@ function authGuard() {
 function guestGuard() {
     const token = getToken();
     if (token) {
-        redirect('/Helplytics-AI/pages/dashboard/dashboard.html');
+        redirect('/pages/dashboard/dashboard.html');
     }
 }

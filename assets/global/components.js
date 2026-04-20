@@ -6,30 +6,30 @@ function renderNavbar(activeMenu = 'home') {
 
     return `
         <header class="navbar container" style="margin-bottom: 2rem;">
-            <a href="${isLoggedIn ? '/Helplytics-AI/pages/dashboard/dashboard.html' : '/index.html'}" class="nav-logo">
+            <a href="${isLoggedIn ? '/pages/dashboard/dashboard.html' : '/index.html'}" class="nav-logo">
                 <div class="logo-icon">H</div>
                 Helplytics AI
             </a>
             <div class="nav-links">
                 ${isLoggedIn ? `
-                    <a href="/Helplytics-AI/pages/dashboard/dashboard.html" class="${activeMenu === 'dashboard' ? 'active' : ''}">Dashboard</a>
-                    <a href="/Helplytics-AI/pages/explore/explore.html" class="${activeMenu === 'explore' ? 'active' : ''}">Explore</a>
-                    <a href="/Helplytics-AI/pages/leaderboard/leaderboard.html" class="${activeMenu === 'leaderboard' ? 'active' : ''}">Leaderboard</a>
-                    <a href="/Helplytics-AI/pages/ai-center/ai-center.html" class="${activeMenu === 'aicenter' ? 'active' : ''}">AI Center</a>
-                    <a href="/Helplytics-AI/pages/notifications/notifications.html" class="${activeMenu === 'notifications' ? 'active' : ''}">Notifications</a>
-                    <a href="/Helplytics-AI/pages/profile/profile.html" class="${activeMenu === 'profile' ? 'active' : ''}">Profile</a>
+                    <a href="/pages/dashboard/dashboard.html" class="${activeMenu === 'dashboard' ? 'active' : ''}">Dashboard</a>
+                    <a href="/pages/explore/explore.html" class="${activeMenu === 'explore' ? 'active' : ''}">Explore</a>
+                    <a href="/pages/leaderboard/leaderboard.html" class="${activeMenu === 'leaderboard' ? 'active' : ''}">Leaderboard</a>
+                    <a href="/pages/ai-center/ai-center.html" class="${activeMenu === 'aicenter' ? 'active' : ''}">AI Center</a>
+                    <a href="/pages/notifications/notifications.html" class="${activeMenu === 'notifications' ? 'active' : ''}">Notifications</a>
+                    <a href="/pages/profile/profile.html" class="${activeMenu === 'profile' ? 'active' : ''}">Profile</a>
                 ` : `
                     <a href="/index.html" class="${activeMenu === 'home' ? 'active' : ''}">Home</a>
-                    <a href="/Helplytics-AI/pages/explore/explore.html" class="${activeMenu === 'explore' ? 'active' : ''}">Explore</a>
-                    <a href="/Helplytics-AI/pages/leaderboard/leaderboard.html" class="${activeMenu === 'leaderboard' ? 'active' : ''}">Leaderboard</a>
+                    <a href="/pages/explore/explore.html" class="${activeMenu === 'explore' ? 'active' : ''}">Explore</a>
+                    <a href="/pages/leaderboard/leaderboard.html" class="${activeMenu === 'leaderboard' ? 'active' : ''}">Leaderboard</a>
                 `}
             </div>
             <div style="display:flex; gap:1rem; align-items:center;">
                 ${isLoggedIn ? `
-                    <a href="/Helplytics-AI/pages/create-request/create-request.html" class="btn btn-secondary" style="border:none; background:#e0f2fe; color:#0284c7;">Create Request</a>
+                    <a href="/pages/create-request/create-request.html" class="btn btn-secondary" style="border:none; background:#e0f2fe; color:#0284c7;">Create Request</a>
                     <button onclick="handleLogout()" class="btn btn-secondary text-secondary" style="border:none; box-shadow:none; padding:10px;">Logout</button>
                 ` : `
-                    <a href="/Helplytics-AI/pages/auth/auth.html" class="btn btn-primary">Join the platform</a>
+                    <a href="/pages/auth/auth.html" class="btn btn-primary">Join the platform</a>
                 `}
             </div>
         </header>
@@ -38,7 +38,7 @@ function renderNavbar(activeMenu = 'home') {
 
 window.handleLogout = function () {
     clearSession();
-    redirect('/Helplytics-AI/pages/auth/auth.html');
+    redirect('/pages/auth/auth.html');
 };
 
 function createRequestCard(request) {
@@ -77,7 +77,7 @@ function createRequestCard(request) {
                     <strong style="display:block; font-size:0.9rem;">${request.author?.name || 'Community Member'}</strong>
                     <span class="text-secondary" style="font-size:0.8rem;">${request.author?.location || 'Remote'} • ${Math.floor(Math.random() * 3)} helpers interested</span>
                 </div>
-                <a href="/Helplytics-AI/pages/request-detail/request-detail.html?id=${request._id}" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Open details</a>
+                <a href="/pages/request-detail/request-detail.html?id=${request._id}" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Open details</a>
             </div>
         </div>
     `;

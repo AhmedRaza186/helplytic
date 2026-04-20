@@ -13,7 +13,7 @@ async function apiCall(endpoint, method = 'GET', body = null, isAuthRequired = t
             } else {
                 // Not authenticated but required
                 clearSession();
-                redirect('/Helplytics-AI/pages/auth/auth.html');
+                redirect('/pages/auth/auth.html');
                 return { success: false, message: 'Authentication required' };
             }
         }
@@ -33,7 +33,7 @@ async function apiCall(endpoint, method = 'GET', body = null, isAuthRequired = t
         // If standard unauthorized response from backend
         if (response.status === 401) {
             clearSession();
-            redirect('/Helplytics-AI/pages/auth/auth.html');
+            redirect('/pages/auth/auth.html');
             return { success: false, message: data.message || 'Session expired' };
         }
 
